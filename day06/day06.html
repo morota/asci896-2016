@@ -794,35 +794,25 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>ASCI 896 Statistical Genomics</h1><p>Gota Morota<br/>1&#x2F;26&#x2F;15</p>
+<h1>ASCI 896 Statistical Genomics</h1><p>Gota Morota<br/>1&#x2F;28&#x2F;15</p>
 
 <div class="slideContent" >
-<p>Whole-genome regression - ridge regression 1</p>
+<p>Whole-genome regression - ridge regression 2</p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Ridge regression </h3>
+<h3>Singular value decomposition </h3>
 <div class="slideContent" >
 <ul>
-<li>\( \hat{\boldsymbol{\beta}}^{ridge} = (\mathbf{X'X} + \lambda \mathbf{I})^{-1} \mathbf{X^{'}y} \)</li>
-<li>\( \hat{\mathbf{y}}^{ridge} = \mathbf{X}\hat{\boldsymbol{\beta}}^{ridge} \)</li>
+<li>\( \mathbf{X} \) is full rank</li>
+<li>\( \mathbf{X} = \mathbf{UDV}^{'} \)</li>
+<li>\( \hat{\boldsymbol{\beta}}^{ols} = \mathbf{VD^{-1}U'}\mathbf{y} \)</li>
+<li>\( \hat{\mathbf{y}}^{ols} = \mathbf{UU'}\mathbf{y} \)</li>
+<li>\( \hat{\boldsymbol{\beta}}^{ridge} = \mathbf{V} (\mathbf{D^2} + \lambda \mathbf{I})^{-1}\mathbf{DU'}\mathbf{y} \)</li>
+<li>\( \hat{\mathbf{y}}^{ridge} = \mathbf{UD} (\mathbf{D^2} + \lambda \mathbf{I})^{-1}\mathbf{DU'}\mathbf{y} \)</li>
 </ul>
-
-<p>The amount of shrinkage 
-\[ 
-\begin{align*}
-  \hat{\beta}_1^{ridge} &= \frac{\sum^n_{i=1} x_{i1}(y_i - x_{i2}\hat{\beta_2} - \cdots - x_{im}\hat{\beta_m}) }{\sum^n_{i=1} x^2_{i1} + \lambda} \\
-  &= \frac{\sum^n_{i=1} x^2_{i1} }{\sum^n_{i=1} x^2_{i1} + \lambda} \times \hat{\beta}^{ols}_{1}
-\end{align*}
- \]
-where
-\[ 
-\begin{align*}
-  \hat{\beta}_1^{ols} &= \frac{\sum^n_{i=1} x_{i1}(y_i - x_{i2}\hat{\beta_2} - \cdots - x_{im}\hat{\beta_m}) }{\sum^n_{i=1} x^2_{i1} } 
-\end{align*}
- \]</p>
 
 </div>
 
