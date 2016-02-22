@@ -106,6 +106,19 @@ bayxshaG &lt;- bayxshaG[-which(is.na(y0)), ]</code></pre>
 <li>Click create file (rrBLUP).</li>
 <li>The <code>traits.txt</code> and the <code>snpfile.txt</code> files include grain yield phenotypes and marker genotypes, respectively.</li>
 </ul>
+<pre class="r"><code>pheno &lt;- read.table(file=&quot;download_HVXF/traits.txt&quot;, header=TRUE, stringsAsFactors = FALSE, sep='\t')
+geno &lt;- read.table(file=&quot;download_HVXF/snpfile.txt&quot;, header=TRUE, stringsAsFactors = FALSE, check.names = FALSE)
+pheno2 &lt;- pheno[match(rownames(geno), pheno[,1]),]
+table(pheno2[,1] %in% rownames(geno))</code></pre>
+<pre><code>## 
+## TRUE 
+##  399</code></pre>
+<pre class="r"><code>table(pheno2[,1] == rownames(geno))</code></pre>
+<pre><code>## 
+## TRUE 
+##  399</code></pre>
+<pre class="r"><code>y2 &lt;- pheno2[,3]
+y2 &lt;- scale(y2)</code></pre>
 <div id="question-2.1" class="section level2">
 <h2>Question 2.1</h2>
 <p>What are the dimensions of <code>y2</code> and <code>geno</code>?</p>
