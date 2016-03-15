@@ -43,8 +43,10 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 
 
-<div id="rice-data" class="section level2">
-<h2>Rice data</h2>
+<div id="ridge-regression-blup" class="section level2">
+<h2>ridge regression BLUP</h2>
+<div id="rice-data" class="section level3">
+<h3>Rice data</h3>
 <p>Download rice data from <a href="http://ricediversity.org/data/sets/44kgwas/" class="uri">http://ricediversity.org/data/sets/44kgwas/</a></p>
 <pre class="r"><code>##################################
 # data cleaning 
@@ -131,6 +133,7 @@ scores &lt;- GWAS(my.pheno, my.geno, min.MAF=0.05, P3D=TRUE, plot=FALSE)</code><
 ## [1] &quot;Variance components estimated. Testing markers.&quot;</code></pre>
 <pre class="r"><code>head(scores[,4]) # returns -log10p</code></pre>
 <pre><code>## [1] 1.6629346 1.6122190 0.1745523 1.1612296 1.8167903 0.7408174</code></pre>
+</div>
 </div>
 
 
