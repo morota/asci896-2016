@@ -100,7 +100,9 @@ X &lt;- X[index,] # 374x36901
 # ridge regression BLUP 
 ##################################
 library(rrBLUP)
-fit &lt;- mixed.solve(y = y, Z=X)
+# center genotype matrix
+X2 &lt;- scale(X, center = TRUE, scale = FALSE)
+fit &lt;- mixed.solve(y = y, Z=X2)
 # marker additive genetic variance
 fit$Vu</code></pre>
 <pre><code>## [1] 0.008110318</code></pre>
@@ -109,7 +111,7 @@ fit$Ve</code></pre>
 <pre><code>## [1] 40.5186</code></pre>
 <pre class="r"><code># intercept 
 fit$beta</code></pre>
-<pre><code>## [1] 75.93236</code></pre>
+<pre><code>## [1] 87.94439</code></pre>
 <pre class="r"><code># marker effects 
 head(fit$u)</code></pre>
 <pre><code>## [1] -0.015622948 -0.015272687 -0.001885351 -0.012680621 -0.016499673
